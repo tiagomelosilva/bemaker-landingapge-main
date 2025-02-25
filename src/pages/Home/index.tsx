@@ -9,6 +9,7 @@ import Heroimg from "../../assets/hero.png"
 import BemakerLab from "../../assets/bemaker-logo.svg"
 import BemakerDev from "../../assets/bemakerdev-logo.png"
 import Bemaker3D from "../../assets/bemaker_3dprint.png"
+import { AlignCenterVertical } from "phosphor-react";
 
 
 interface IProps {
@@ -68,15 +69,8 @@ export function Home ({ setSelectedPage }: IProps) {
                         <ActionButton 
                             setSelectedPage={setSelectedPage}
                         >
-                            Join Now
+                            Entre em contato
                         </ActionButton>
-                        <AnchorLink
-                            className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
-                            onClick={() => setSelectedPage(SelectedPage.ContactUs)}
-                            href={`${SelectedPage.ContactUs}`}
-                        >
-                            Contact Us
-                        </AnchorLink>
                      </motion.div>
                 </div>
                 {/* Image — Imagem do HERO*/}
