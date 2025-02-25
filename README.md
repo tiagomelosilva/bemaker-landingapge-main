@@ -19,3 +19,12 @@
 2. Use o comando: ***yarn*** ou ***npm install/i*** para instalar os pacotes;
 3. Use o comando: ***yarn dev*** ou ***npm run dev*** para rodar a aplicação;
 4. Edite o modelo base como julgar melhor.
+
+
+<!--Comandos de bash para commit em grupo:
+
+git add .
+git commit -m "feat: considerações a respeito do que foi alterado"
+git push origin main
+
+-->
