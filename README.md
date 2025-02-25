@@ -21,10 +21,10 @@
 4. Edite o modelo base como julgar melhor.
 
 
-<!--Comandos de bash para commit em grupo:
+Comandos de bash para commit em grupo:
 
 git add .
 git commit -m "feat: considerações a respeito do que foi alterado"
 git push origin main
 
--->
+Obs.: Copiar e colar os 3 comandos juntos é mais prático.
