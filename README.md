@@ -1,10 +1,10 @@
 # BeMAKER LAB-WebSite
 #### WebSite OnePage desenvolvido com a finalidade de aprimorar o dominío sobre o Front-End React + TypeScript.
 
-<img src="./assets/home-page.png" alt="gym-home-photo" width="600px" height="300">
+<!--<img src="./assets/home-page.png" alt="gym-home-photo" width="600px" height="300">
 <img src="./assets/services-page.png" alt="gym-services-photo" width="600px" height="300">
 <img src="./assets/about-gym.png" alt="gym-about-photo" width="600px" height="300">
-<img src="./assets/classes-page.png" alt="gym-classes-photo" width="600px" height="300">
+<img src="./assets/classes-page.png" alt="gym-classes-photo" width="600px" height="300">-->
 
 
 ### Tecnoligias utilizadas no projeto:
