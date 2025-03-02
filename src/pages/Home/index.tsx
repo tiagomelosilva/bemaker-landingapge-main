@@ -62,10 +62,10 @@ export function Home({ setSelectedPage }: IProps) {
                         }}
                     >
                         <AnchorLink href="#contato">
-    <ActionButton setSelectedPage={setSelectedPage} page="Contato">
-        Entre em contato
-    </ActionButton>
-</AnchorLink>
+                        <ActionButton setSelectedPage={setSelectedPage} page="Contato">
+                           Entre em contato
+                          </ActionButton>
+                    </AnchorLink>
 
                     </motion.div>
                 </div>

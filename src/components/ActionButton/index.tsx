@@ -3,9 +3,11 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import { SelectedPage } from "../../shared/types";
 
 interface IProps {
-    children: ReactNode;
     setSelectedPage: (value: SelectedPage) => void;
+    page: string; // Adicione essa linha
+    children: string;
 }
+
 
 export function ActionButton({ children, setSelectedPage }: IProps) {
     return (
