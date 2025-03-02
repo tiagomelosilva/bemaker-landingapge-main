@@ -1,13 +1,8 @@
-import { BaseSyntheticEvent } from "react"
-
+import { BaseSyntheticEvent } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { motion } from "framer-motion";
-
 import { SelectedPage } from "../../shared/types";
-
-import ContactUsPageGraphic from "../../assets/ContactUsPageGraphic.png";
-
-import ProfileImg from "../../assets/contato.png"
+import ProfileImg from "../../assets/Contato.png";
 import { HText } from "../../components/HText";
 
 interface IProps {
@@ -20,30 +15,22 @@ interface IFormInput {
     message: string;
 }
 
-export function ContactUs({ setSelectedPage }: IProps) {
-
+export function Contato({ setSelectedPage }: IProps) {
     const inputStyles = `w-full rounded-lg outline-primary-300 bg-primary-300 
     px-4 py-3 placeholder-white mt-2`;
     const wrapperImg = `md:before:content-evolvetext 
     before:absolute before:-bottom-20 before:-right-10 before:z-[-1]`;
 
     const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>();
-    // const onSubmit: SubmitHandler<IFormInput> = data => console.log(data);
 
-    async function onSubmit(data: IFormInput, e?: BaseSyntheticEvent) {
-        e!.preventDefault();
-        console.log(data)
-    }
-
+    const onSubmit: SubmitHandler<IFormInput> = (data, e?: BaseSyntheticEvent) => {
+        e?.preventDefault();
+        console.log(data);
+    };
 
     return (
-        <section
-            id="contactus"
-            className="mx-auto w-5/6 py-20"
-        >
-            <motion.div
-                onViewportEnter={() => setSelectedPage(SelectedPage.ContactUs)}
-            >
+        <section id="contato" className="mx-auto w-5/6 py-20"> {/* ID corrigido */}
+            <motion.div onViewportEnter={() => setSelectedPage(SelectedPage.Contato)}>
                 {/* HEADER */}
                 <motion.div
                     className="w-3/6"
@@ -52,22 +39,20 @@ export function ContactUs({ setSelectedPage }: IProps) {
                     transition={{ delay: 0.2, duration: 1 }}
                     variants={{
                         hidden: { opacity: 0, x: -100 },
-                        visible: { opacity: 1, x: 0 }
-
+                        visible: { opacity: 1, x: 0 },
                     }}
                 >
                     <HText>
                         <span className="text-primary-500">Não seja tímido. </span>
-                        Entre em contato agora.
+                        Entre em Contato agora.
                     </HText>
                     <p className="py-6">
-                    Fique à vontade para entrar em contato comigo. Estou sempre aberto a discutir novos projetos, 
-                    ideias criativas ou oportuniades de dar vida à sua visão.
+                        Fique à vontade para entrar em Contato comigo. Estou sempre aberto a discutir novos projetos,
+                        ideias criativas ou oportunidades de dar vida à sua visão.
                     </p>
                 </motion.div>
 
                 {/* FORM AND IMAGE */}
-
                 <div className="mt-1 items-center justify-between gap-10 md:flex">
                     {/* FORM */}
                     <motion.div
@@ -77,66 +62,51 @@ export function ContactUs({ setSelectedPage }: IProps) {
                         transition={{ delay: 0.2, duration: 1 }}
                         variants={{
                             hidden: { opacity: 0, y: -100 },
-                            visible: { opacity: 1, y: 0 }
-
+                            visible: { opacity: 1, y: 0 },
                         }}
                     >
-                        <form
-                            onSubmit={handleSubmit(onSubmit)}
-                            autoComplete="off"
-                        >
+                        <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
                             <input
-
                                 className={inputStyles}
                                 type="text"
                                 placeholder="Nome:"
                                 {...register("name", { required: true, maxLength: 50 })}
                             />
                             {errors.name && (
-                                <span
-                                    className="mt-1 text-primary-500"
-                                >
+                                <span className="mt-1 text-primary-500">
                                     {errors.name.type === "required" && "This field is required."}
                                     {errors.name.type === "maxLength" && "Max Length is 50 caracteres."}
                                 </span>
-                            )
-                            }
+                            )}
 
                             <input
                                 className={inputStyles}
                                 type="email"
-
                                 placeholder="E-mail:"
                                 {...register("email", { required: true, maxLength: 50 })}
                             />
                             {errors.email && (
-                                <span
-                                    className="mt-1 text-primary-500"
-                                >
+                                <span className="mt-1 text-primary-500">
                                     {errors.email.type === "required" && "This field is required."}
                                     {errors.email.type === "maxLength" && "Max Length is 50 caracteres."}
                                 </span>
-                            )
-                            }
+                            )}
 
                             <textarea
                                 className={inputStyles}
                                 rows={4}
                                 cols={50}
-
                                 placeholder="Mensagem:"
                                 {...register("message", { required: true, maxLength: 1000 })}
                             />
                             {errors.message && (
-                                <span
-                                    className="mt-1 text-primary-500"
-                                >
+                                <span className="mt-1 text-primary-500">
                                     {errors.message.type === "required" && "This field is required."}
                                     {errors.message.type === "maxLength" && "Max Length is 1000 caracteres."}
                                 </span>
-                            )
-                            }
+                            )}
                             <button
+                                type="submit"
                                 className="mt-2 rounded-lg bg-primary-500 text-white text-center py-2 px-20 transition duration-500 hover:text-white hover:bg-secondary-400"
                             >
                                 Enviar
@@ -152,23 +122,15 @@ export function ContactUs({ setSelectedPage }: IProps) {
                         transition={{ delay: 0.2, duration: 1 }}
                         variants={{
                             hidden: { opacity: 0, y: -100 },
-                            visible: { opacity: 1, y: 0 }
-
+                            visible: { opacity: 1, y: 0 },
                         }}
                     >
-                        <div 
-                            className={wrapperImg}
-                        >
-                            <img 
-                                src={ProfileImg} 
-                                className="w-full" 
-                                alt="ProfileImg" 
-                            />
+                        <div className={wrapperImg}>
+                            <img src={ProfileImg} className="w-full" alt="ProfileImg" />
                         </div>
                     </motion.div>
                 </div>
             </motion.div>
         </section>
-    )
-
+    );
 }

@@ -1,24 +1,24 @@
-import { IconProps } from "phosphor-react";
+import { ReactNode } from "react";
 
 enum SelectedPage {
-    Home = "home",
-    Benefits = "benefits",
-    OurClasses = "ourclasses",
-    ContactUs = "contactus"
+    Home = "Home",
+    Serviços = "Serviços",
+    Portfólio = "Portfólio",
+    Contato = "Contato",
 }
 
-interface IBenefits {
+interface IServiços {
     id?: string;
-    icon: IconProps;
+    icon: ReactNode; // Alterado para ReactNode
     title: string;
     description: string;
 }
 
-interface IClass{
+interface IClass {
     id?: string;
     name: string;
     description?: string;
     image: string;
 }
 
-export { SelectedPage, IBenefits, IClass };
+export { SelectedPage, IServiços, IClass };

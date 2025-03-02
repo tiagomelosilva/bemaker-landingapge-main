@@ -1,9 +1,9 @@
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { IBenefits, SelectedPage } from "../../shared/types";
+import { IServiços, SelectedPage } from "../../shared/types";
 import { motion } from "framer-motion";
 
 
-interface IProps extends IBenefits {
+interface IProps extends IServiços {
     setSelectedPage: (value: SelectedPage) => void;
 }
 
@@ -19,7 +19,7 @@ const childVariant = {
 }
 
 
-export function Benefit({ icon, title, description, setSelectedPage }: IProps) {
+export function Serviços({ icon, title, description, setSelectedPage }: IProps) {
     return (
         <motion.div
             variants={childVariant}
