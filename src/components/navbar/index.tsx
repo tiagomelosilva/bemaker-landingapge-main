@@ -71,37 +71,39 @@ export function Navbar({ selectedPage, setSelectedPage, isTopOfPage }: IProps) {
             </div>
 
             {/* Mobile Menu Modal */}
-            {!isAboveMediumScreen && isMenuToggled && (
-                <div className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl">
-                    <div className="flex justify-end p-12">
-                        <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
-                            <X className="h-6 w-6 text-gray-400" />
-                        </button>
-                    </div>
-                    <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-                        <Link
-                            page="Home"
-                            selectedPage={selectedPage}
-                            setSelectedPage={setSelectedPage}
-                        />
-                        <Link
-                            page="Serviços"
-                            selectedPage={selectedPage}
-                            setSelectedPage={setSelectedPage}
-                        />
-                        <Link
-                            page="Portfolio"
-                            selectedPage={selectedPage}
-                            setSelectedPage={setSelectedPage}
-                        />
-                        <Link
-                            page="Contato"
-                            selectedPage={selectedPage}
-                            setSelectedPage={setSelectedPage}
-                        />
-                    </div>
-                </div>
-            )}
+{!isAboveMediumScreen && isMenuToggled && (
+    <div className="fixed top-0 right-0 z-40 h-full w-[70%] max-w-[300px] bg-primary-100 drop-shadow-xl">
+        {/* Botão de Fechar */}
+        <div className="flex justify-end p-4">
+            <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
+                <X className="h-6 w-6 text-gray-400" />
+            </button>
+        </div>
+        {/* Links do Menu */}
+        <div className="flex flex-col gap-6 px-4 text-lg">
+            <Link
+                page="Home"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+            />
+            <Link
+                page="Serviços"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+            />
+            <Link
+                page="Portfolio"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+            />
+            <Link
+                page="Contato"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+            />
+        </div>
+    </div>
+)}
         </nav>
     );
 }
