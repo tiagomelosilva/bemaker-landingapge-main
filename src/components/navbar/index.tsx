@@ -49,14 +49,14 @@ export function Navbar({ selectedPage, setSelectedPage, isTopOfPage }: IProps) {
                                         setSelectedPage={setSelectedPage}
                                     />
                                 </div>
-                                <div style={{ display: "none" }}>
+                                {/*<div style={{ display: "none" }}>
                                     <div className={`${flexBetween} gap-8`}>
                                         <span>Sign In</span>
                                         <ActionButton setSelectedPage={setSelectedPage}>
                                             Become Member
                                         </ActionButton>
                                     </div>
-                                </div>
+                                </div>*/}
                             </div>
                         ) : (
                             <button

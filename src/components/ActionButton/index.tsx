@@ -4,9 +4,10 @@ import { SelectedPage } from "../../shared/types";
 
 interface IProps {
     setSelectedPage: (value: SelectedPage) => void;
-    page: string; // Adicione essa linha
+    page?: string; // Tornando opcional
     children: string;
 }
+
 
 
 export function ActionButton({ children, setSelectedPage }: IProps) {

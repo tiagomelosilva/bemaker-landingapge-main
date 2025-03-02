@@ -132,7 +132,8 @@ export function Serviços({ setSelectedPage }: IProps) {
 <div className="relative mt-16">
     <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
         <AnchorLink href="#contato">
-            <ActionButton>
+        <ActionButton setSelectedPage={setSelectedPage} page="Contato">
+
                 Entre em contato
             </ActionButton>
         </AnchorLink>
