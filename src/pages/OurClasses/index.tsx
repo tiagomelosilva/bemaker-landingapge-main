@@ -11,7 +11,9 @@ import Image6 from "../../assets/image6.png";
 import { HText } from "../../components/HText";
 import { Class } from "../../components/Class";
 
+
 const classes: IClass[] = [
+    
     {
         id: "dc25bbdf-95af-4d83-acee-e5a584a545cd",
         name: "Desenvolvimento Web",
@@ -69,7 +71,7 @@ export function OurClasses({ setSelectedPage }: IProps) {
                 className="mx-auto w-5/6"
             >
                 <motion.div 
-                    className="md:w-3/5"
+                    className="md:w-full"
                     onViewportEnter={() => setSelectedPage(SelectedPage.OurClasses)}
                     initial="hidden"
                     whileInView="visible"
@@ -81,11 +83,15 @@ export function OurClasses({ setSelectedPage }: IProps) {
                     }}
                 >
                     <HText>Meu portfólio</HText>
-                    <p className="py-5">
-                    Conheça um pouco sobre o trabalho de uma vida mostrando resultados de 23 anos de muita dedicação e superação.
+                    <p className="py-4 text-justify text-center" >
+                    Explore os resultados de 23 anos de experiência, inovação e dedicação.
+                    Ao longo dessa jornada, transformei ideias em realidade, unindo criatividade,
+                    tecnologia e estratégia para entregar projetos de alto impacto. Cada trabalho
+                    reflete minha paixão por design, desenvolvimento e soluções inteligentes que conectam pessoas e marcas.
                     </p>
                 </motion.div>
-                <div className="mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden">
+                {/* Div com a barra de rolagem personalizada */}
+                <div className="mt-10 h-[360px] w-full overflow-x-auto overflow-y-hidden custom-scrollbar">
                     <ul className="w-full whitespace-nowrap">
                         {
                             classes.map((item) => (

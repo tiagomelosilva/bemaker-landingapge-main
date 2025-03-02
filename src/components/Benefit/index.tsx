@@ -26,19 +26,19 @@ export function Benefit({ icon, title, description, setSelectedPage }: IProps) {
             className="mt-5 rounded-md border-2 border-gray-100 px-5 py-16 text-center"
         >
             <div className="mb-4 flex justify-center">
-                <div className="rounded-full border-2 border-gray-100 bg-primary-100">
+                <div className="rounded-full border-2 border-gray-100 bg-primary-100 p-2">
                     <>{icon}</>
                 </div>
             </div>
             <h4 className="font-bold">{title}</h4>
             <p className="text-sm my-4">{description}</p>
-            <AnchorLink
+        {/*    <AnchorLink
                 className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
                 onClick={() => setSelectedPage(SelectedPage.ContactUs)}
                 href={`${SelectedPage.ContactUs}`}
             >
-                Learn More
-            </AnchorLink>
+                Saiba mais
+            </AnchorLink>*/}
         </motion.div>
     )
 }

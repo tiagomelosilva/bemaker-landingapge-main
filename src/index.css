@@ -13,3 +13,31 @@ body,
     font-family: "DM Sans", sans-serif;
     @apply text-gray-500;
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 14px; /* Largura maior */
+    height: 14px; /* Altura maior */    
+    margin-top: 10px; /* Ajuste para alinhar na vertical */
+    margin-left: 10px; /* Ajuste para alinhar na horizontal */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #33BBFF; /* Cor de fundo mais clara */
+    border-radius: 12px; /* Bordas mais arredondadas */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #0D4CBB; /* Cor do thumb */
+    border-radius: 12px; /* Bordas mais arredondadas */
+    border: 0px solid #33BBFF; /* Espaço maior entre o thumb e a trilha */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #33BBFF; /* Cor do thumb ao passar o mouse (vermelho mais escuro) */
+    border: 0px solid #0D4CBB; /* Espaço maior entre o thumb e a trilha */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track:hover {
+    background: #0D4CBB; /* Cor de fundo ao passar o mouse */
+}
+

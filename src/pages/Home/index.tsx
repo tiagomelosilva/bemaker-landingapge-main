@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+//import AnchorLink from "react-anchor-link-smooth-scroll";
 
 import { SelectedPage } from "../../shared/types";
 import { ActionButton } from "../../components/ActionButton";
@@ -9,7 +9,6 @@ import Heroimg from "../../assets/hero.png"
 import BemakerLab from "../../assets/bemaker-logo.svg"
 import BemakerDev from "../../assets/bemakerdev-logo.png"
 import Bemaker3D from "../../assets/bemaker_3dprint.png"
-import { AlignCenterVertical } from "phosphor-react";
 
 
 interface IProps {
@@ -49,9 +48,13 @@ export function Home ({ setSelectedPage }: IProps) {
                                 <img src={BemakerLogo} alt="bemaker logo" />
                             </div>
                         </div>
-                        <p className="mt-8 text-sm"> {/*Texto abaixo do logo do HERO*/}
-                        Sou um profissional com mais de duas décadas de experiência e apto a atender um mercado mais exigente.
-                        Fui premiado por minhas criações, bem como, realizei grandes feitos em minha área de autação.
+                        <p className="mt-8 text-sm text-justify"> {/*Texto abaixo do logo do HERO*/}
+                        Com mais de 20 anos de experiência, sou especialista em design estratégico voltado para alta conversão.
+                        Premiado e reconhecido no mercado, já criei projetos de grande impacto, como a identidade visual da reforma do
+                        Parque Mutirama e campanhas publicitárias vencedoras. Atuo no marketing de uma holding como designer, movie maker,
+                        motion designer e especialista em DesignOps, além de ser piloto certificado de RPA para captação de imagens e
+                        monitoramento. Também apoio uma startup tech do grupo como product designer, UI/UX designer e front-end em React.js.<br />
+                        <b>Transformo negócios com design inteligente e resultados reais.</b>
                         </p>
                      </motion.div>
                      {/* Actions */}

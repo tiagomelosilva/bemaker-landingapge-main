@@ -23,7 +23,7 @@ interface IFormInput {
 export function ContactUs({ setSelectedPage }: IProps) {
 
     const inputStyles = `w-full rounded-lg outline-primary-300 bg-primary-300 
-    px-5 py-3 placeholder-white mt-2`;
+    px-4 py-3 placeholder-white mt-2`;
     const wrapperImg = `md:before:content-evolvetext 
     before:absolute before:-bottom-20 before:-right-10 before:z-[-1]`;
 
@@ -57,17 +57,18 @@ export function ContactUs({ setSelectedPage }: IProps) {
                     }}
                 >
                     <HText>
-                        <span className="text-primary-500">JOIN NOW </span>
-                        TO GET IN SHAPE
+                        <span className="text-primary-500">Não seja tímido. </span>
+                        Entre em contato agora.
                     </HText>
-                    <p className="py-5">
-                    Ready to transform your health and well-being? Fill out the form below and start your fitness journey with us
+                    <p className="py-6">
+                    Fique à vontade para entrar em contato comigo. Estou sempre aberto a discutir novos projetos, 
+                    ideias criativas ou oportuniades de dar vida à sua visão.
                     </p>
                 </motion.div>
 
                 {/* FORM AND IMAGE */}
 
-                <div className="mt-4 items-center justify-between gap-8 md:flex">
+                <div className="mt-1 items-center justify-between gap-10 md:flex">
                     {/* FORM */}
                     <motion.div
                         className="basis-3/5 md:mt-0"
@@ -88,7 +89,7 @@ export function ContactUs({ setSelectedPage }: IProps) {
 
                                 className={inputStyles}
                                 type="text"
-                                placeholder="NAME"
+                                placeholder="Nome:"
                                 {...register("name", { required: true, maxLength: 50 })}
                             />
                             {errors.name && (
@@ -105,7 +106,7 @@ export function ContactUs({ setSelectedPage }: IProps) {
                                 className={inputStyles}
                                 type="email"
 
-                                placeholder="EMAIL"
+                                placeholder="E-mail:"
                                 {...register("email", { required: true, maxLength: 50 })}
                             />
                             {errors.email && (
@@ -123,7 +124,7 @@ export function ContactUs({ setSelectedPage }: IProps) {
                                 rows={4}
                                 cols={50}
 
-                                placeholder="MESSAGE"
+                                placeholder="Mensagem:"
                                 {...register("message", { required: true, maxLength: 1000 })}
                             />
                             {errors.message && (
@@ -136,16 +137,16 @@ export function ContactUs({ setSelectedPage }: IProps) {
                             )
                             }
                             <button
-                                className="mt-2 rounded-lg bg-secondary-500 text-center py-2 px-20 transition duration-500 hover:text-white hover:bg-secondary-400"
+                                className="mt-2 rounded-lg bg-primary-500 text-white text-center py-2 px-20 transition duration-500 hover:text-white hover:bg-secondary-400"
                             >
-                                Send
+                                Enviar
                             </button>
                         </form>
                     </motion.div>
 
                     {/* IMAGE */}
                     <motion.div
-                        className="relative mt-16 basics-2/5 md:mt-0"
+                        className="relative mt-2 basics-2/5 md:mt-0"
                         initial="hidden"
                         whileInView="visible"
                         transition={{ delay: 0.2, duration: 1 }}

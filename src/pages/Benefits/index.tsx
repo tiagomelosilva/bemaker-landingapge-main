@@ -1,11 +1,10 @@
-import { GraduationCap, UserSquare, Barbell } from "phosphor-react";
+import { GraduationCap, UserSquare, Barbell, Cube, Code, PaintBrush, CurrencyGbp } from "phosphor-react";
 import { motion } from "framer-motion";
 
 import { IBenefits, SelectedPage } from "../../shared/types";
 import { HText } from "../../components/HText";
 import { Benefit } from "../../components/Benefit";
 import { ActionButton } from "../../components/ActionButton";
-import BenefitsPageGraphic from "../../assets/BenefitsPageGraphic.png";
 import ActionFigure from "../../assets/pickle-rick-3d-print.png"
 
 interface IProps {
@@ -16,21 +15,21 @@ interface IProps {
 const benefits: IBenefits[] = [
     {
         id: "75f79fec-9f15-4d8e-81d9-84f3caede775",
-        icon: <Barbell className="h-6 w-6" />,
+        icon: <Cube className="h-6 w-6" />,
         title: "Impressão 3D",
-        description: "Detalhar de forma comercial o serviço de impressão 3D"
+        description: "Transformo modelos digitais em objetos físicos, criando protótipos, peças finais, biomodelos e maquetes. A impressão 3D reduz custos, acelera processos e melhora a avaliação de projetos."
     },
     {
         id: "86adb601-a39a-4498-ac01-f73652b8306c",
-        icon: <UserSquare className="h-6 w-6" />,
+        icon: <Code className="h-6 w-6" />,
         title: "UI/UX e DevWeb",
-        description: "Detalhar de forma comercial o serviço de UI/UX e DevWeb."
+        description: "Desenvolvo interfaces visuais, landing pages em React.js e sites personalizados em WordPress, HTML, CSS e JS. Crio experiências digitais intuitivas e otimizadas para performance."
     },
     {
         id: "5ebc8605-3f9a-4048-8f68-a54f1ad82d15",
-        icon: <GraduationCap className="h-6 w-6" />,
+        icon: <PaintBrush className="h-6 w-6" />,
         title: "Design e Motion Design",
-        description: "Detalhar de forma comercial o serviço de Design Gráfico."
+        description: "Crio identidades visuais, embalagens, animações, vinhetas e edições de vídeo. Desenvolvo materiais gráficos e digitais para fortalecer marcas e envolver o público."
     },
 ];
 
@@ -135,10 +134,16 @@ export function Benefits({ setSelectedPage }: IProps) {
                             }}
                         >
                             <p className="my-5">
-                            Descrever um pouco sobre a impressão 3D de forma técnica e prática.
+                            Transformo ideias em realidade com tecnologia de impressão 3D de alta precisão. 
+                            Produzo protótipos para validação de design, modelos para campanhas de marketing,
+                             peças funcionais, biomodelos, gabaritos, suportes e dispositivos de fixação.
+                              Crio maquetes arquitetônicas detalhadas, proporcionando visualização realista e
+                               otimização de projetos.
+
+A fabricação aditiva acelera processos, reduz custos e aprimora o desenvolvimento de produtos, garantindo eficiência, personalização e alto desempenho. Conte com a impressão 3D para inovar, reduzir prazos e impulsionar suas criações com qualidade excepcional.
                             </p>
                             <p className="mb-5">
-                            Mencionar criações como o chaveiro smart.
+                            Agora, apresento o chaveiro inteligente, um acessório exclusivo e personalizado que conecta o mundo físico ao digital. Com tecnologia integrada, ele permite compartilhar informações de contato, direcionar para redes sociais ou levar visitantes ao seu site de forma rápida e prática. Um detalhe sofisticado que agrega funcionalidade ao seu dia a dia.
                             </p>
                         </motion.div>
                         {/* BUTTON */}
@@ -147,7 +152,7 @@ export function Benefits({ setSelectedPage }: IProps) {
                                 <ActionButton
                                     setSelectedPage={setSelectedPage}
                                 >
-                                    Join Now
+                                    Entre em contato
                                 </ActionButton>
                             </div>
                         </div>
