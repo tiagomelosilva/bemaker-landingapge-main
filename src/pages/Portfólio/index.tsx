@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { IClass, SelectedPage } from "../../shared/types";
 import Image1 from "../../assets/image1.png";
 import Image2 from "../../assets/image2.png";
@@ -53,6 +54,8 @@ interface IProps {
 }
 
 export function Portfólio({ setSelectedPage }: IProps) {
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
     return (
         <section id="portfolio" className="w-full bg-primary-100 py-20"> {/* ID corrigido */}
             <div className="mx-auto w-5/6">
@@ -77,18 +80,25 @@ export function Portfólio({ setSelectedPage }: IProps) {
                 </motion.div>
                 {/* Div com a barra de rolagem personalizada */}
                 <div className="mt-10 h-[360px] w-full overflow-x-auto overflow-y-hidden custom-scrollbar">
-                    <ul className="w-full whitespace-nowrap">
+                    <ul className="w-full whitespace-nowrap flex gap-4">
                         {classes.map((item) => (
-                            <Class
-                                key={item.id}
-                                name={item.name}
-                                description={item.description}
-                                image={item.image}
-                            />
+                            <div key={item.id} className="relative group cursor-pointer" onClick={() => setSelectedImage(item.image)}>
+                                <Class
+                                    name={item.name}
+                                    description={item.description}
+                                    image={item.image}
+                                />
+                            </div>
                         ))}
                     </ul>
                 </div>
             </div>
+            {/* Modal de imagem */}
+            {selectedImage && (
+                <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={() => setSelectedImage(null)}>
+                    <img src={selectedImage} alt="Imagem ampliada" className="max-w-[90%] max-h-[90%]" />
+                </div>
+            )}
         </section>
     );
 }
