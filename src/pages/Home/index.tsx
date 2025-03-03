@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import AnchorLink from "react-anchor-link-smooth-scroll"; // Corrigido: adicionei "import" completo
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import { SelectedPage } from "../../shared/types";
 import { ActionButton } from "../../components/ActionButton";
 import { useMediaQuery } from "../../hooks/useMediaQueries";
 import BemakerLogo from "../../assets/bemaker-logo.svg";
 import Heroimg from "../../assets/hero.png";
-import BemakerLab from "../../assets/bemaker-logo.svg";
-import BemakerDev from "../../assets/bemakerdev-logo.png";
-import Bemaker3D from "../../assets/bemaker_3dprint.png";
+import BemakerLab from "../../assets/bemaker-design.svg";
+import BemakerDev from "../../assets/bemaker-dev.svg";
+import Bemaker3D from "../../assets/bemaker-3dprint.svg";
 
 interface IProps {
     setSelectedPage: (value: SelectedPage) => void;
@@ -24,7 +24,7 @@ export function Home({ setSelectedPage }: IProps) {
                 onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
             >
                 {/* Main header */}
-                <div className="z-10 mt-32 md:basis-3/5">
+                <div className="z-10 mt-20 md:basis-3/5">
                     {/* Headings */}
                     <motion.div
                         className="md:-mt-22"
@@ -37,11 +37,11 @@ export function Home({ setSelectedPage }: IProps) {
                         }}
                     >
                         <div className="relative">
-                            <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1] md:before:content-evolvetext">
+                            <div className="before:absolute before:-top-10 before:-left-20 before:z-[-1] md:before:content-evolvetext">
                                 <img src={BemakerLogo} alt="bemaker logo" />
                             </div>
                         </div>
-                        <p className="mt-8 text-sm text-justify">
+                        <p className="mt-10 text-sm text-justify">
                             Com mais de 20 anos de experiência, sou especialista em design estratégico voltado para alta conversão.
                             Premiado e reconhecido no mercado, já criei projetos de grande impacto, como a identidade visual da reforma do
                             Parque Mutirama e campanhas publicitárias vencedoras. Atuo no marketing de uma holding como designer, movie maker,
@@ -52,7 +52,7 @@ export function Home({ setSelectedPage }: IProps) {
                     </motion.div>
                     {/* Actions */}
                     <motion.div
-                        className="mt-8 flex gap-8 items-center justify-start"
+                        className="mt-10 mb-10 flex gap-8 items-center justify-start md:justify-start justify-center"
                         initial="hidden"
                         whileInView="visible"
                         transition={{ delay: 0.2, duration: 1 }}
@@ -62,30 +62,28 @@ export function Home({ setSelectedPage }: IProps) {
                         }}
                     >
                         <AnchorLink href="#contato">
-                        <ActionButton setSelectedPage={setSelectedPage} page="Contato">
-                           Entre em contato
-                          </ActionButton>
-                    </AnchorLink>
-
+                            <ActionButton setSelectedPage={setSelectedPage} page="Contato">
+                                Entre em contato
+                            </ActionButton>
+                        </AnchorLink>
                     </motion.div>
                 </div>
                 {/* Image — Imagem do HERO*/}
-                <div className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:mt-8 md:justify-items-end">
+                <div className="flex mb-6 basis-3/5 justify-center md:z-40 md:ml-8 md:mt-8 md:justify-items-end">
                     <img src={Heroimg} alt="HomeHero" />
                 </div>
             </motion.div>
-            {/* Sponsors */}
-            {isAboveMediumScreen && (
-                <div className="h-[150px] w-full bg-primary-100 py-10">
-                    <div className="mx-auto w-5/6">
-                        <div className="flex items-center justify-between gap-8">
-                            <img src={BemakerLab} alt="BemakerLab" width="200" />
-                            <img src={BemakerDev} alt="BemakerDev" width="200" />
-                            <img src={Bemaker3D} alt="Bemaker3D" width="70" />
-                        </div>
+
+            {/* Sponsors - Logos */}
+            <div className="w-full bg-primary-100 py-10 overflow-x-auto">
+                <div className="mx-auto w-4/6">
+                    <div className="flex items-center justify-start gap-20 md:gap-80 whitespace-nowrap flex-nowrap pl-10 md:pl-0">
+                        <img src={BemakerLab} alt="BemakerLab" className="w-40" />
+                        <img src={BemakerDev} alt="BemakerDev" className="w-40" />
+                        <img src={Bemaker3D} alt="Bemaker3D" className="w-40" />
                     </div>
                 </div>
-            )}
+            </div>
         </section>
     );
 }

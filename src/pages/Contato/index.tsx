@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { SelectedPage } from "../../shared/types";
 import ProfileImg from "../../assets/Contato.png";
 import { HText } from "../../components/HText";
+import emailjs from "@emailjs/browser"; // Importe o EmailJS
+import '../../index.css';
 
 interface IProps {
     setSelectedPage: (value: SelectedPage) => void;
@@ -16,24 +18,44 @@ interface IFormInput {
 }
 
 export function Contato({ setSelectedPage }: IProps) {
-    const inputStyles = `w-full rounded-lg outline-primary-300 bg-primary-300 
-    px-4 py-3 placeholder-white mt-2`;
-    const wrapperImg = `md:before:content-evolvetext 
-    before:absolute before:-bottom-20 before:-right-10 before:z-[-1]`;
-
-    const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
 
     const onSubmit: SubmitHandler<IFormInput> = (data, e?: BaseSyntheticEvent) => {
         e?.preventDefault();
-        console.log(data);
+
+        // Configurações do EmailJS
+        const templateParams = {
+            from_name: data.name,
+            from_email: data.email,
+            message: data.message,
+        };
+
+        emailjs
+            .send(
+                "service_7xcrgbz", // Service ID
+                "template_8q6ip8j", // Template ID
+                templateParams, // Dados do formulário
+                "LfXHwJ_pC24NqG8AS" // Public Key
+            )
+            .then(
+                (response) => {
+                    console.log("Email enviado com sucesso!", response.status, response.text);
+                    reset(); // Limpa o formulário após o envio
+                    alert("Mensagem enviada com sucesso!");
+                },
+                (error) => {
+                    console.log("Erro no envio! ", error);
+                    alert("Erro ao enviar a mensagem. Tente novamente.");
+                }
+            );
     };
 
     return (
-        <section id="contato" className="mx-auto w-5/6 py-20"> {/* ID corrigido */}
+        <section id="contato" className="mx-auto w-5/6 py-20">
             <motion.div onViewportEnter={() => setSelectedPage(SelectedPage.Contato)}>
                 {/* HEADER */}
                 <motion.div
-                    className="w-3/6"
+                    className="w-full md:w-3/6"
                     initial="hidden"
                     whileInView="visible"
                     transition={{ delay: 0.2, duration: 1 }}
@@ -46,14 +68,14 @@ export function Contato({ setSelectedPage }: IProps) {
                         <span className="text-primary-500">Não seja tímido. </span>
                         Entre em Contato agora.
                     </HText>
-                    <p className="py-6">
+                    <p className="py-4 mb-0">
                         Fique à vontade para entrar em Contato comigo. Estou sempre aberto a discutir novos projetos,
                         ideias criativas ou oportunidades de dar vida à sua visão.
                     </p>
                 </motion.div>
 
                 {/* FORM AND IMAGE */}
-                <div className="mt-1 items-center justify-between gap-10 md:flex">
+                <div className="mt-0 items-center justify-between gap-10 md:flex">
                     {/* FORM */}
                     <motion.div
                         className="basis-3/5 md:mt-0"
@@ -65,35 +87,40 @@ export function Contato({ setSelectedPage }: IProps) {
                             visible: { opacity: 1, y: 0 },
                         }}
                     >
-                        <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+                        <form
+                            onSubmit={handleSubmit(onSubmit)}
+                            className="form"
+                            autoComplete="off"
+                        >
                             <input
-                                className={inputStyles}
+                                className="input"
                                 type="text"
                                 placeholder="Nome:"
                                 {...register("name", { required: true, maxLength: 50 })}
                             />
                             {errors.name && (
                                 <span className="mt-1 text-primary-500">
-                                    {errors.name.type === "required" && "This field is required."}
-                                    {errors.name.type === "maxLength" && "Max Length is 50 caracteres."}
+                                    {errors.name.type === "required" && "O preenchimento deste campo é obrigatório."}
+                                    {errors.name.type === "maxLength" && "O limite máximo são 50 caracteres."}
                                 </span>
                             )}
 
                             <input
-                                className={inputStyles}
+                                className="input"
                                 type="email"
                                 placeholder="E-mail:"
-                                {...register("email", { required: true, maxLength: 50 })}
+                                {...register("email", { required: true, maxLength: 50, pattern: /^\S+@\S+$/i })}
                             />
                             {errors.email && (
                                 <span className="mt-1 text-primary-500">
-                                    {errors.email.type === "required" && "This field is required."}
-                                    {errors.email.type === "maxLength" && "Max Length is 50 caracteres."}
+                                    {errors.email.type === "required" && "O preenchimento deste campo é obrigatório."}
+                                    {errors.email.type === "maxLength" && "O limite máximo são 50 caracteres."}
+                                    {errors.email.type === "pattern" && "Por favor, insira um e-mail válido."}
                                 </span>
                             )}
 
                             <textarea
-                                className={inputStyles}
+                                className="textarea"
                                 rows={4}
                                 cols={50}
                                 placeholder="Mensagem:"
@@ -101,22 +128,22 @@ export function Contato({ setSelectedPage }: IProps) {
                             />
                             {errors.message && (
                                 <span className="mt-1 text-primary-500">
-                                    {errors.message.type === "required" && "This field is required."}
-                                    {errors.message.type === "maxLength" && "Max Length is 1000 caracteres."}
+                                    {errors.message.type === "required" && "O preenchimento deste campo é obrigatório."}
+                                    {errors.message.type === "maxLength" && "O limite máximo são 1000 caracteres."}
                                 </span>
                             )}
                             <button
                                 type="submit"
-                                className="mt-2 rounded-lg bg-primary-500 text-white text-center py-2 px-20 transition duration-500 hover:text-white hover:bg-secondary-400"
+                                className="button"
                             >
-                                Enviar
+                                <b>Enviar mensagem</b>
                             </button>
                         </form>
                     </motion.div>
 
                     {/* IMAGE */}
                     <motion.div
-                        className="relative mt-2 basics-2/5 md:mt-0"
+                        className="relative mt-2 basis-2/6 md:mt-0"
                         initial="hidden"
                         whileInView="visible"
                         transition={{ delay: 0.2, duration: 1 }}
@@ -125,7 +152,7 @@ export function Contato({ setSelectedPage }: IProps) {
                             visible: { opacity: 1, y: 0 },
                         }}
                     >
-                        <div className={wrapperImg}>
+                        <div className="md:before:content-evolvetext before:absolute before:-bottom-0 before:-right-10 before:z-[-1]">
                             <img src={ProfileImg} className="w-full" alt="ProfileImg" />
                         </div>
                     </motion.div>

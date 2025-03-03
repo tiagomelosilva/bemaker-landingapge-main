@@ -4,8 +4,9 @@ import { IServiços, SelectedPage } from "../../shared/types";
 import { HText } from "../../components/HText";
 import { ActionButton } from "../../components/ActionButton";
 import ActionFigure from "../../assets/pickle-rick-3d-print.png";
-import { ServiçoItem } from "../../components/ServiçoItem/ServiçoItem";//importando serviços item
+import { ServiçoItem } from "../../components/ServiçoItem/ServiçoItem";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+
 interface IProps {
     setSelectedPage: (value: SelectedPage) => void;
 }
@@ -40,7 +41,7 @@ const container = {
 
 export function Serviços({ setSelectedPage }: IProps) {
     return (
-        <section id="serviços" className="mx-auto min-h-full w-5/6 py-20">
+        <section id="serviços" className="mx-auto min-h-full w-5/6 pt-10 pb-20"> {/* Ajuste o padding-top (pt-10) para aproximar o HText do topo */}
             <motion.div onViewportEnter={() => setSelectedPage(SelectedPage.Serviços)}>
                 {/* HEADER */}
                 <motion.div
@@ -54,8 +55,9 @@ export function Serviços({ setSelectedPage }: IProps) {
                     }}
                 >
                     <HText>Conheça meus serviços</HText>
-                    <p className="my-5 text-sm">
-                        Fazer um relato detalhado com uma boa COPY a respeito dos tipos de serviços que presto.
+                    <p className="my-6 text-sm">
+                    Com mais de 20 anos de experiência em design estratégico, UI/UX, motion design e impressão 3D, transformo ideias em soluções criativas e de alto impacto.
+                    Da identidade visual ao desenvolvimento front-end, meu trabalho é focado em resultados e alta conversão.
                     </p>
                 </motion.div>
 
@@ -79,7 +81,7 @@ export function Serviços({ setSelectedPage }: IProps) {
                 {/* Graphics and description */}
                 <div className="md:flex md:mt-16 items-center justify-between gap-8">
                     {/* Graphic */}
-                    <img className="mx-auto" src={ActionFigure} alt="ActionFigure" width={250} />
+                    <img className="mx-auto mt-10 mb-10" src={ActionFigure} alt="ActionFigure" width={250} />
 
                     {/* Container Description */}
                     <div>
@@ -114,31 +116,30 @@ export function Serviços({ setSelectedPage }: IProps) {
                                 visible: { opacity: 1, x: 0 },
                             }}
                         >
-                            <p className="my-5">
+                            <p className="my-5 text-justify text-center">
                                 Transformo ideias em realidade com tecnologia de impressão 3D de alta precisão.
                                 Produzo protótipos para validação de design, modelos para campanhas de marketing,
                                 peças funcionais, biomodelos, gabaritos, suportes e dispositivos de fixação.
                                 Crio maquetes arquitetônicas detalhadas, proporcionando visualização realista e
                                 otimização de projetos.
                             </p>
-                            <p className="mb-5">
+                            <p className="mb-5 text-justify text-center">
                                 Agora, apresento o chaveiro inteligente, um acessório exclusivo e personalizado que
                                 conecta o mundo físico ao digital. Com tecnologia integrada, ele permite compartilhar
                                 informações de contato, direcionar para redes sociais ou levar visitantes ao seu site
                                 de forma rápida e prática. Um detalhe sofisticado que agrega funcionalidade ao seu dia a dia.
                             </p>
                         </motion.div>
-                       {/* BUTTON */}
-<div className="relative mt-16">
-    <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
-        <AnchorLink href="#contato">
-        <ActionButton setSelectedPage={setSelectedPage} page="Contato">
-
-                Entre em contato
-            </ActionButton>
-        </AnchorLink>
-    </div>
-</div>
+                        {/* BUTTON */}
+                        <div className="relative mt-16 flex justify-center md:justify-start"> {/* Centraliza no mobile e alinha à esquerda em telas maiores */}
+                            <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
+                                <AnchorLink href="#contato">
+                                    <ActionButton setSelectedPage={setSelectedPage} page="Contato">
+                                        Entre em contato
+                                    </ActionButton>
+                                </AnchorLink>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </motion.div>
