@@ -12,38 +12,38 @@ import { Class } from "../../components/Class";
 const classes: IClass[] = [
     {
         id: "dc25bbdf-95af-4d83-acee-e5a584a545cd",
-        name: "Desenvolvimento Web",
-        description: "Detalhar um pouco sobre minha atuação como Dev.",
+        name: "Design System",
+        description: "Crio interfaces intuitivas e eficientes para sistemas e aplicações, garantindo usabilidade, estética e performance.",
         image: Image1,
     },
     {
         id: "c9fdb258-f90e-4dac-b6ad-e0027049a0f7",
         name: "Impressão 3D - Action Figures",
-        description: "Detalhar um pouco sobre impressão 3D e pintura de Action Figures",
+        description: "Produzo action figures personalizadas em impressão 3D, sob demanda, para colecionadores, decoração e projetos exclusivos.",
         image: Image2,
     },
     {
         id: "d3730487-b937-40c1-acfb-a19ff2a75919",
         name: "Impressões 3D sob demanda",
-        description: "Colocar o chaveiro smart neste quadro - Detalhar um pouco sobre impressão 3D sob demanda",
+        description: "Ofereço impressão 3D sob demanda para itens de decoração, utensílios domésticos e objetos personalizados, adaptados às suas necessidades.",
         image: Image3,
     },
     {
         id: "33272c97-909e-4604-9289-fb6cfb22b3a1",
         name: "Impressão 3D de peças Técnicas",
-        description: "Detalhar um pouco sobre impressão 3D de peças técnicas e mudar a imagem",
+        description: "Produzo peças técnicas em impressão 3D, garantindo alta precisão, resistência e personalização para projetos industriais e funcionais.",
         image: Image4,
     },
     {
         id: "f8bba971-ad7d-46d6-ada0-850d7ce91f8e",
         name: "Ilustrações 2D",
-        description: "Detalhar um pouco sobre meu trabalho como ilustrador e talvez mencionar as antigas ilustrações do Mutirama feitas em 2012",
+        description: "Crio ilustrações 2D personalizadas para projetos gráficos, editoriais, publicidade e mídias digitais, unindo criatividade e técnica.",
         image: Image5,
     },
     {
         id: "7972d2ee-c402-43a4-85ef-4e28383ed107",
         name: "Design Gráfico",
-        description: "Detalhar um pouco a respeito da minha carreira como Designer Senior fullstack.",
+        description: "Com 23 anos de experiência, inovação e dedicação, transformei ideias em realidade, unindo criatividade, tecnologia e estratégia para criar projetos impactantes. Cada trabalho reflete minha paixão por design, desenvolvimento e soluções inteligentes que conectam pessoas e marcas de maneira única e eficaz.",
         image: Image6,
     },
 ];
