@@ -60,7 +60,7 @@ export function Navbar({ selectedPage, setSelectedPage, isTopOfPage }: IProps) {
                             </div>
                         ) : (
                             <button
-                                className="rounded-md bg-secondary-500 p-2 fixed top-6 right-24 z-50"
+                                className="flex items-center justify-center rounded-md bg-secondary-500 p-2 fixed top-6 right-24 z-50"
                                 onClick={() => setIsMenuToggled(!isMenuToggled)}
                             >
                                 <List className="h-6 w-6 text-white" />
@@ -72,9 +72,9 @@ export function Navbar({ selectedPage, setSelectedPage, isTopOfPage }: IProps) {
 
             {/* Mobile Menu Modal */}
             {!isAboveMediumScreen && isMenuToggled && (
-    <div className="fixed top-0 right-0 z-40 h-full w-[240px] bg-primary-100 drop-shadow-xl">
+    <div className="fixed top-0 right-6 z-40 h-full w-[240px] bg-primary-100 drop-shadow-xl">
         {/* Botão de Fechar */}
-        <div className="p-2 fixed top-6 right-24 z-50">
+        <div className="p-2 fixed top-6 right-20 z-50">
             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
                 <X className="h-6 w-6 text-gray-400" />
             </button>

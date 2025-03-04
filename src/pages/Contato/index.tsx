@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { motion } from "framer-motion";
 import { SelectedPage } from "../../shared/types";
 import ProfileImg from "../../assets/Contato.png";
+import ActionFigure from "../../assets/pickle-rick-3d-print.png";
 import { HText } from "../../components/HText";
 import emailjs from "@emailjs/browser"; // Importe o EmailJS
 import '../../index.css';
@@ -51,8 +52,9 @@ export function Contato({ setSelectedPage }: IProps) {
     };
 
     return (
-        <section id="contato" className="mx-auto w-5/6 py-20">
+        <section id="contato" className="mx-auto w-5/6 pt-20">
             <motion.div onViewportEnter={() => setSelectedPage(SelectedPage.Contato)}>
+                
                 {/* HEADER */}
                 <motion.div
                     className="w-full md:w-3/6"
@@ -75,10 +77,11 @@ export function Contato({ setSelectedPage }: IProps) {
                 </motion.div>
 
                 {/* FORM AND IMAGE */}
-                <div className="mt-0 items-center justify-between gap-10 md:flex">
+                <div className="md:mt-[-180px] flex flex-col md:flex-row items-center justify-between gap-10">
+                    
                     {/* FORM */}
                     <motion.div
-                        className="basis-3/5 md:mt-0"
+                        className="basis-5/6 md:mt-0"
                         initial="hidden"
                         whileInView="visible"
                         transition={{ delay: 0.2, duration: 1 }}
@@ -143,7 +146,7 @@ export function Contato({ setSelectedPage }: IProps) {
 
                     {/* IMAGE */}
                     <motion.div
-                        className="relative mt-2 basis-2/6 md:mt-0"
+                        className="relative mt-2 basis-2/6 md:mt-1"
                         initial="hidden"
                         whileInView="visible"
                         transition={{ delay: 0.2, duration: 1 }}
@@ -152,8 +155,8 @@ export function Contato({ setSelectedPage }: IProps) {
                             visible: { opacity: 1, y: 0 },
                         }}
                     >
-                        <div className="md:before:content-evolvetext before:absolute before:-bottom-0 before:-right-10 before:z-[-1]">
-                            <img src={ProfileImg} className="w-full" alt="ProfileImg" />
+                        <div className="md:before:content-evolvetext before:absolute before:-bottom-1 before:-right-10 before:z-[-1]">
+                            <img src={ActionFigure} className="w-full" alt="ProfileImg" />
                         </div>
                     </motion.div>
                 </div>

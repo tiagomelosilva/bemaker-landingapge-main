@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { IServiços, SelectedPage } from "../../shared/types";
 import { HText } from "../../components/HText";
 import { ActionButton } from "../../components/ActionButton";
-import ActionFigure from "../../assets/pickle-rick-3d-print.png";
+// Atualize o caminho do arquivo de vídeo para o nome correto do arquivo `.mp4`
+import ActionFigureVideo from "../../assets/ActionFigureVideo.mp4"; // Verifique se o caminho do vídeo está correto
 import { ServiçoItem } from "../../components/ServiçoItem/ServiçoItem";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
@@ -41,11 +42,11 @@ const container = {
 
 export function Serviços({ setSelectedPage }: IProps) {
     return (
-        <section id="serviços" className="mx-auto min-h-full w-5/6 pt-10 pb-20"> {/* Ajuste o padding-top (pt-10) para aproximar o HText do topo */}
+        <section id="serviços" className="mx-auto min-h-full w-5/6 pt-10 pb-20">
             <motion.div onViewportEnter={() => setSelectedPage(SelectedPage.Serviços)}>
                 {/* HEADER */}
                 <motion.div
-                    className="md:my-5 md:w-3/5"
+                    className="md:my-5 md:w-3/6"
                     initial="hidden"
                     whileInView="visible"
                     transition={{ duration: 1 }}
@@ -56,8 +57,8 @@ export function Serviços({ setSelectedPage }: IProps) {
                 >
                     <HText>Conheça meus serviços</HText>
                     <p className="my-6 text-sm">
-                    Com mais de 20 anos de experiência em design estratégico, UI/UX, motion design e impressão 3D, transformo ideias em soluções criativas e de alto impacto.
-                    Da identidade visual ao desenvolvimento front-end, meu trabalho é focado em resultados e alta conversão.
+                        Com mais de 20 anos de experiência em design estratégico, UI/UX, motion design e impressão 3D, transformo ideias em soluções criativas e de alto impacto.
+                        Da identidade visual ao desenvolvimento front-end, meu trabalho é focado em resultados e alta conversão.
                     </p>
                 </motion.div>
 
@@ -79,9 +80,32 @@ export function Serviços({ setSelectedPage }: IProps) {
                 </motion.div>
 
                 {/* Graphics and description */}
-                <div className="md:flex md:mt-16 items-center justify-between gap-8">
-                    {/* Graphic */}
-                    <img className="mx-auto mt-10 mb-10" src={ActionFigure} alt="ActionFigure" width={250} />
+                <div className="mt-10 md:flex md:mt-16 items-center justify-between gap-8">
+                   {/* Vídeo */}
+                   <motion.div
+                        className="basis-3/5 md:mt-0"
+                        initial="hidden"
+                        whileInView="visible"
+                        transition={{ delay: 0.2, duration: 1 }}
+                        variants={{
+                            hidden: { opacity: 0, y: -100 },
+                            visible: { opacity: 1, y: 0 },
+                        }}
+                    >
+<div className="flex justify-center w-full md:w-[350px]  overflow-hidden">
+    <video
+        className="w-full h-auto rounded-lg border-4 border-primary-500 mb-10"
+        controls
+        autoPlay
+        muted
+        loop
+    >
+        <source src={ActionFigureVideo} type="video/mp4" />
+        Seu navegador não suporta o vídeo.
+    </video>
+</div>
+</motion.div>
+
 
                     {/* Container Description */}
                     <div>
@@ -131,7 +155,7 @@ export function Serviços({ setSelectedPage }: IProps) {
                             </p>
                         </motion.div>
                         {/* BUTTON */}
-                        <div className="relative mt-16 flex justify-center md:justify-start"> {/* Centraliza no mobile e alinha à esquerda em telas maiores */}
+                        <div className="relative mt-16 flex justify-center md:justify-start">
                             <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
                                 <AnchorLink href="#contato">
                                     <ActionButton setSelectedPage={setSelectedPage} page="Contato">

@@ -52,7 +52,7 @@ export function Home({ setSelectedPage }: IProps) {
                     </motion.div>
                     {/* Actions */}
                     <motion.div
-                        className="mt-10 mb-10 flex gap-8 items-center justify-start md:justify-start justify-center"
+                        className="mt-10 mb-10 flex gap-8 items-center justify-center md:justify-start justify-center"
                         initial="hidden"
                         whileInView="visible"
                         transition={{ delay: 0.2, duration: 1 }}
@@ -69,21 +69,33 @@ export function Home({ setSelectedPage }: IProps) {
                     </motion.div>
                 </div>
                 {/* Image — Imagem do HERO*/}
-                <div className="flex mb-6 basis-3/5 justify-center md:z-40 md:ml-8 md:mt-8 md:justify-items-end">
+                
+                <div className="flex items-center mb-6 basis-3/6 justify-center md:z-1 md:ml-8 md:mt-8 md:justify-items-end">
                     <img src={Heroimg} alt="HomeHero" />
                 </div>
             </motion.div>
 
             {/* Sponsors - Logos */}
+            <motion.div
+                        className="basis-3/5 md:mt-0"
+                        initial="hidden"
+                        whileInView="visible"
+                        transition={{ delay: 0.2, duration: 1 }}
+                        variants={{
+                            hidden: { opacity: 0, y: -100 },
+                            visible: { opacity: 1, y: 0 },
+                        }}
+                    >
             <div className="w-full bg-primary-100 py-10 overflow-x-auto">
-                <div className="mx-auto w-4/6">
-                    <div className="flex items-center justify-start gap-20 md:gap-80 whitespace-nowrap flex-nowrap pl-10 md:pl-0">
+                <div className="mx-auto w-full md:w-4/6">
+                    <div className="flex items-center justify-start md:justify-center gap-40 md:gap-40 whitespace-nowrap flex-nowrap pl-[40px] md:pl-0 pr-[40px]">
                         <img src={BemakerLab} alt="BemakerLab" className="w-40" />
                         <img src={BemakerDev} alt="BemakerDev" className="w-40" />
                         <img src={Bemaker3D} alt="Bemaker3D" className="w-40" />
                     </div>
                 </div>
             </div>
+            </motion.div>
         </section>
     );
 }
